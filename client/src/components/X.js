@@ -10,7 +10,7 @@ const Container = styled.div`
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #233147;
+  background-color: #505364;
   overflow-x: hidden;
   padding-top: 20px;
   label, span {
@@ -26,7 +26,7 @@ const MainTitle = styled.h3`
 const Title = styled.h4`
   margin-top: 1rem;
   text-align: center;
-  background: #4a4f5f;
+  background: #40444f;
   color: #fff;
   width: 100%;
 `;
@@ -49,14 +49,14 @@ const DropdownContainer = styled.div`
 
 const Dropdown = styled.select`
   margin: 0 auto;
-  background-color:#1F99CD;
+  background-color: #d1d4da;
   background-image: url(${arrow});
   background-position: right 10px center;
   background-repeat: no-repeat;
   background-size: auto 50%;
   border-radius:2px;
-  border:none;
-  color: #ffffff;
+  border: none;
+  color: #000;
   padding: 10px 30px 10px 10px;
   outline: none;
   appearance: none;
