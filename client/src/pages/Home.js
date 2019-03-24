@@ -5,7 +5,7 @@ import { Loader } from '../utils/loader';
 import Layout from '../layout';
 import CarItem from '../components/CarItem';
 // import NewNewSidebar from '../components/NewNewSidebar';
-import X from '../components/X';
+import SideBar from '../components/SideBar';
 // import Sidebar from '../layout/Sidebar';
 
 const Container = styled.div`
@@ -97,7 +97,7 @@ export default class App extends Component {
   render() {
     return (
       <Layout>
-        <X
+        <SideBar
           changeOptions={this.changeOptions}
           setSliderValue={this.setSliderValue}
           carList={this.state.carList}

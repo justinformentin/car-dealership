@@ -10,7 +10,7 @@ const Container = styled.div`
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #233147;
+  background-color: #505364;
   overflow-x: hidden;
   padding-top: 20px;
   label, span {
@@ -26,7 +26,7 @@ const MainTitle = styled.h3`
 const Title = styled.h4`
   margin-top: 1rem;
   text-align: center;
-  background: #4a4f5f;
+  background: #40444f;
   color: #fff;
   width: 100%;
 `;
@@ -49,14 +49,14 @@ const DropdownContainer = styled.div`
 
 const Dropdown = styled.select`
   margin: 0 auto;
-  background-color:#1F99CD;
+  background-color: #d1d4da;
   background-image: url(${arrow});
   background-position: right 10px center;
   background-repeat: no-repeat;
   background-size: auto 50%;
   border-radius:2px;
-  border:none;
-  color: #ffffff;
+  border: none;
+  color: #000;
   padding: 10px 30px 10px 10px;
   outline: none;
   appearance: none;
@@ -104,9 +104,9 @@ const SideBar = props => {
     min_price,
     max_price,
     changeOptions,
-    setSliderValue,
     year
   } = props
+
   /**
    * @param {string} key
    *
@@ -120,19 +120,6 @@ const SideBar = props => {
     // Maps over each list item and returns options for the select component
     return uniqueList.map((item) => <option key={item} value={item}>{item}</option>)
   }
-
-  // const optionList = () => {
-  //   const test = this.props.carList[0].options
-  //   const testList = Object.keys(test)
-  //   return testList.map((item) => {
-  //     return(
-  //       <div>
-  //         <label>{item}</label>
-  //       <input type="checkbox" name={item} value={item} onChange={this.props.changeOptions} />
-  //       </div>
-  //     )
-  //   })
-  // }
 
   return (
     <Container>
@@ -164,7 +151,7 @@ const SideBar = props => {
         </PriceWrap>
         <PriceWrap>
           <label>Max Price</label>
-          <PriceInput type="text" name="max_price" defaultValue='25000' onChange={changeOptions} value={max_price}/>
+          <PriceInput type="text" name="max_price" defaultValue='20000' onChange={changeOptions} value={max_price}/>
         </PriceWrap>
       </PriceContainer>
 
@@ -209,5 +196,4 @@ const SideBar = props => {
   )
 }
 
-
-export default SideBar
+export default SideBar;
