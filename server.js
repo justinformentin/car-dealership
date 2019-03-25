@@ -14,7 +14,7 @@ const port = process.env.PORT || 5000;
 app.use(express.static(path.join(__dirname, "client", "build")))
 
 mongoose
-  .connect( 'mongodb://justin:justin1@ds215961.mlab.com:15961/justin', {useNewUrlParser: true})
+  .connect( process.env.MONGODB_URI || 'mongodb://justin:justin1@ds215961.mlab.com:15961/justin', {useNewUrlParser: true})
   .then( () => console.log('Successfully connected to server'))
   .catch( err => console.log(err))
 
