@@ -20,7 +20,6 @@ export default class Home extends Component {
     carList: [],
     filteredData: [],
     make: 'All',
-    year: 'All',
     color: 'All',
     miles: 0,
     min_price: 0,
@@ -66,8 +65,7 @@ export default class Home extends Component {
     let newData = this.state.carList.filter(item => {
       return (
         item.price >= this.state.min_price &&
-        item.price <= this.state.max_price &&
-        item.year >= this.state.year
+        item.price <= this.state.max_price
       );
     });
 

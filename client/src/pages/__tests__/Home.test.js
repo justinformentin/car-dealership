@@ -29,10 +29,6 @@ describe('<Home />', () => {
     expect(wrapper.state().color).to.deep.equal('All');
   });
 
-  it('should have a state property "year" initiated to "All"', () => {
-    expect(wrapper.state().year).to.deep.equal('All');
-  });
-
   it('should have a state property "min_price" initiated to "0"', () => {
     expect(wrapper.state().min_price).to.deep.equal(0);
   });

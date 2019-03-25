@@ -27,7 +27,13 @@ npm run test
 ```
 
 ## Filtering
-The `SideBar` components houses all of the filter inputs. When interacted with, the inputs, dropdowns, and checkboxes change the state in the `Home` components through the `filteredData` function. The `Home` makes a server call to retrieve the data, and clicking on the 'More Info' button routes you to `/car/:id/`.
+The `SideBar` components houses all of the filter inputs. When interacted with, the inputs, dropdowns, and checkboxes change the state in the `Home` components through the `filteredData` function.
+
+- The Price inputs show you cars between the two values you entered.
+
+- The Mile slider shows you only cars with `Low Miles` once you lower the slider past '50000'.
+
+The `Home` makes a server call to retrieve the data, and clicking on the 'More Info' button routes you to `/car/:id/`.
 
 ## Mongo
 Mongo is a NoSQL database that is great for small, proof of work application in which you just need to get your ideas out there and connect some data. It's so simple that for a dev environment, all you need to do is add the database URL to your server, and then type mongod in a terminal to get it running. I wish every database could be that easy, but we can't get everything that we want.

@@ -188,7 +188,7 @@ const SideBar = props => {
         </PriceWrap>
       </PriceContainer>
 
-      <Title>Year</Title>
+      {/* <Title>Year</Title>
       <Slider>
         <input
           type="range"
@@ -203,7 +203,7 @@ const SideBar = props => {
       <SliderTags>
         <p>2012</p>
         <p>2016</p>
-      </SliderTags>
+      </SliderTags> */}
 
       <Title>Miles</Title>
       <Slider>
