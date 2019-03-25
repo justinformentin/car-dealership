@@ -20,7 +20,6 @@ router.get('/', async (req, res) => {
 router.get('/car/:id', async (req, res) => {
   try {
     const car = await Cars.findById(req.params.id)
-    console.log(req.params.id);
     res.send({ car });
   } catch (err) {
     res.status(404).send({ message: 'Car not found!' });

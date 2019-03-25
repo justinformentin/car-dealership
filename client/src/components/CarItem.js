@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from '../layout/Button';
 import CarDetails from './CarDetails';
@@ -64,3 +65,7 @@ const CarItem = (props) => {
 }
 
 export default CarItem;
+
+CarItem.propTypes = {
+  car: PropTypes.object.isRequired
+};

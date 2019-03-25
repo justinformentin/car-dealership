@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import chevy from '../assets/images/chevy.png';
 import ford from '../assets/images/ford.png';
 import mercedes from '../assets/images/mercedes.png';
@@ -33,7 +34,7 @@ const CarDetails = props => {
   })[make]
 
   return (
-    <>
+    <Fragment>
       <Img alt="Car Logo" src={carLogo(make)} />
       <h3>{formatter.format(price)}</h3>
       <p>Make: {make}</p>
@@ -48,8 +49,19 @@ const CarDetails = props => {
         {options.hasNavigation && <li>Navigation</li>}
         {options.hasHeatedSeats && <li>Heated Seats</li>}
       </ul>
-    </>
+    </Fragment>
   )
 }
 
 export default CarDetails
+
+CarDetails.propTypes = {
+  car: PropTypes.shape({
+    _id: PropTypes.string,
+    make: PropTypes.string,
+    year: PropTypes.number,
+    price: PropTypes.number,
+    color: PropTypes.string,
+    options: PropTypes.objectOf(PropTypes.bool)
+  })
+};

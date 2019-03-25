@@ -1,9 +1,7 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import theme from '../utils/theme';
 
 const Button = styled.button`
-  background: ${props => theme.button[props.type].background};
+  background: #777;
   border: none;
   color: #fff;
   display: inline-block;
@@ -28,11 +26,3 @@ const Button = styled.button`
 `;
 
 export default Button;
-
-Button.propTypes = {
-  type: PropTypes.oneOf(['primary']),
-};
-
-Button.defaultProps = {
-  type: 'default',
-};

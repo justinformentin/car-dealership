@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Slider from './Slider';
 import arrow from '../assets/images/arrow.svg';
 
@@ -122,6 +123,7 @@ const SideBar = props => {
   }
 
   return (
+
     <Container>
 
       <MainTitle>Car Options</MainTitle>
@@ -147,11 +149,11 @@ const SideBar = props => {
       <PriceContainer>
         <PriceWrap>
           <label>Min. Price</label>
-          <PriceInput type="text" name="min_price" defaultValue='0' onChange={changeOptions} value={min_price}/>
+          <PriceInput type="text" data-testid="min-price" name="min_price" defaultValue='0' onChange={changeOptions} value={min_price}/>
         </PriceWrap>
         <PriceWrap>
           <label>Max Price</label>
-          <PriceInput type="text" name="max_price" defaultValue='20000' onChange={changeOptions} value={max_price}/>
+          <PriceInput type="text" data-testid="max-price" name="max_price" defaultValue='20000' onChange={changeOptions} value={max_price}/>
         </PriceWrap>
       </PriceContainer>
 
@@ -197,3 +199,19 @@ const SideBar = props => {
 }
 
 export default SideBar;
+
+SideBar.propTypes = {
+  carList: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string,
+      make: PropTypes.string,
+      year: PropTypes.number,
+      price: PropTypes.number,
+      color: PropTypes.string,
+      options: PropTypes.objectOf(PropTypes.bool)
+    }),
+  ),
+  min_price: PropTypes.number,
+  max_price: PropTypes.number,
+  year: PropTypes.number
+};

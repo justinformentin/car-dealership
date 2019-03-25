@@ -48,29 +48,24 @@ export default class Info extends Component {
     isReady: false,
   };
 
-  fetchData = () => {
+  componentDidMount() {
     axios
       .get(`/api/data/car/${this.props.match.params.id}`)
       .then(res =>
         this.setState({
           car: res.data.car,
           isReady: !this.state.isReady,
-        }, () => console.log(this.state.car))
+        })
       )
       .catch(err => console.log(err));
-    window.scrollTo(0, 0);
   };
-
-  componentDidMount() {
-    this.fetchData();
-  }
 
   render() {
 
     const { car } = this.state;
 
     return (
-      <Layout type="full">
+      <Layout>
         {this.state.isReady ? (
           <Container>
             <Wrapper>

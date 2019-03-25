@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 require("dotenv").config()
-// const db = require('./config/key').MongoURI; //remove for Heroku deployment
 
 const routes = require('./routes/api');
 

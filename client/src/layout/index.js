@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { createGlobalStyle } from 'styled-components';
+import PropTypes from 'prop-types';
 import Header from './Header';
 
 const GlobalStyle = createGlobalStyle`
@@ -24,10 +25,14 @@ const Layout = ({ children }) => {
   return (
     <Fragment>
       <GlobalStyle />
-      <Header type="full" />
+      <Header />
       {children}
     </Fragment>
   );
 };
 
 export default Layout;
+
+Layout.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
+}

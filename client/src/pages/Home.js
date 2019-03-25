@@ -4,9 +4,7 @@ import axios from 'axios';
 import { Loader } from '../utils/loader';
 import Layout from '../layout';
 import CarItem from '../components/CarItem';
-// import NewNewSidebar from '../components/NewNewSidebar';
 import SideBar from '../components/SideBar';
-// import Sidebar from '../layout/Sidebar';
 
 const Container = styled.div`
   margin: 0 auto;
@@ -17,7 +15,7 @@ const Container = styled.div`
   }
 `;
 
-export default class App extends Component {
+export default class Home extends Component {
 
   state = {
     carList: [],
@@ -33,7 +31,7 @@ export default class App extends Component {
     hasPowerWindows: false,
     hasNavigation: false,
     hasHeatedSeats: false,
-    isReady: false
+    isReady: false,
   }
 
   async componentDidMount() {
@@ -56,16 +54,16 @@ export default class App extends Component {
     this.setState({
       [name]: value
     }, () => {
-      console.log(this.state)
       this.filteredData()
     })
   }
 
-  filteredData() {
+  filteredData = () => {
     let newData = this.state.carList.filter((item) => {
       return item.price >= this.state.min_price && item.price <= this.state.max_price
       && item.year >= this.state.year
     })
+
     if(this.state.color !== 'All') {
       newData = newData.filter((item) => item.color === this.state.color)
     }
@@ -88,10 +86,10 @@ export default class App extends Component {
 
 
     this.setState({
-      filteredData: newData
-    },
-    // () => console.log(this.state.filteredData)
-    )
+      filteredData: newData,
+      filtered: true
+    })
+
   }
 
   render() {
@@ -99,14 +97,13 @@ export default class App extends Component {
       <Layout>
         <SideBar
           changeOptions={this.changeOptions}
-          setSliderValue={this.setSliderValue}
           carList={this.state.carList}
         />
         {this.state.isReady ? (
           <Container>
             {this.state.filteredData.map(car => {
               return(
-                <CarItem car={car} />
+                <CarItem key={car._id} car={car} />
               )
             })}
           </Container>
