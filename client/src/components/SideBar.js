@@ -188,23 +188,6 @@ const SideBar = props => {
         </PriceWrap>
       </PriceContainer>
 
-      {/* <Title>Year</Title>
-      <Slider>
-        <input
-          type="range"
-          name="year"
-          defaultValue="2012"
-          onChange={changeOptions}
-          value={year}
-          min="2012"
-          max="2016"
-        />
-      </Slider>
-      <SliderTags>
-        <p>2012</p>
-        <p>2016</p>
-      </SliderTags> */}
-
       <Title>Miles</Title>
       <Slider>
         <input
