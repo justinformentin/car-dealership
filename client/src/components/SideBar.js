@@ -119,7 +119,7 @@ const Option = styled.div`
 `;
 
 const SideBar = props => {
-  const { carList, min_price, max_price, changeOptions, year } = props;
+  const { carList, min_price, max_price, changeOptions, year, miles } = props;
 
   /**
    * @param {string} key
@@ -203,6 +203,23 @@ const SideBar = props => {
       <SliderTags>
         <p>2012</p>
         <p>2016</p>
+      </SliderTags>
+
+      <Title>Miles</Title>
+      <Slider>
+        <input
+          type="range"
+          name="miles"
+          defaultValue="75000"
+          onChange={changeOptions}
+          value={miles}
+          min="0"
+          max="100000"
+        />
+      </Slider>
+      <SliderTags>
+        <p>0</p>
+        <p>100,000</p>
       </SliderTags>
 
       <Title>Options</Title>

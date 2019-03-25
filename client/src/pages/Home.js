@@ -22,6 +22,7 @@ export default class Home extends Component {
     make: 'All',
     year: 'All',
     color: 'All',
+    miles: 0,
     min_price: 0,
     max_price: 20000,
     hasSunroof: false,
@@ -76,6 +77,10 @@ export default class Home extends Component {
     if (this.state.make !== 'All') {
       newData = newData.filter(item => item.make === this.state.make);
     }
+    if (this.state.miles <= 50000) {
+      newData = newData.filter(item => item.options.hasLowMiles);
+    }
+
 
     // Options
     this.state.hasSunroof &&
@@ -101,6 +106,7 @@ export default class Home extends Component {
       filtered: true,
     });
   };
+
 
   render() {
     return (

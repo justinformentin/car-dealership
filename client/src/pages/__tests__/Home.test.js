@@ -21,6 +21,10 @@ describe('<Home />', () => {
     expect(wrapper.state().make).to.deep.equal('All');
   });
 
+  it('should have a state property "miles" initiated to "0"', () => {
+    expect(wrapper.state().miles).to.deep.equal(0);
+  });
+
   it('should have a state property "color" initiated to "All"', () => {
     expect(wrapper.state().color).to.deep.equal('All');
   });
