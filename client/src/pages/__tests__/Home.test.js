@@ -7,7 +7,6 @@ import Home from '../Home';
 configure({ adapter: new Adapter() });
 
 describe('<Home />', () => {
-
   const wrapper = shallow(<Home />);
 
   it('should have a state property "carList" initiated to empty array', () => {
@@ -65,5 +64,4 @@ describe('<Home />', () => {
   it('should have a state property "isReady" initiated to "false"', () => {
     expect(wrapper.state().isReady).to.deep.equal(false);
   });
-
-})
+});

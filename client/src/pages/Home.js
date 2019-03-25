@@ -16,7 +16,6 @@ const Container = styled.div`
 `;
 
 export default class Home extends Component {
-
   state = {
     carList: [],
     filteredData: [],
@@ -32,11 +31,11 @@ export default class Home extends Component {
     hasNavigation: false,
     hasHeatedSeats: false,
     isReady: false,
-  }
+  };
 
   async componentDidMount() {
     try {
-      const cars = await axios("/api/data");
+      const cars = await axios('/api/data');
       this.setState({
         carList: cars.data.cars,
         filteredData: cars.data.cars,
@@ -48,49 +47,60 @@ export default class Home extends Component {
   }
 
   changeOptions = e => {
-    const name = e.target.name
-    const value = (e.target.type === 'checkbox') ? e.target.checked : e.target.value
+    const name = e.target.name;
+    const value =
+      e.target.type === 'checkbox' ? e.target.checked : e.target.value;
 
-    this.setState({
-      [name]: value
-    }, () => {
-      this.filteredData()
-    })
-  }
+    this.setState(
+      {
+        [name]: value,
+      },
+      () => {
+        this.filteredData();
+      }
+    );
+  };
 
   filteredData = () => {
-    let newData = this.state.carList.filter((item) => {
-      return item.price >= this.state.min_price && item.price <= this.state.max_price
-      && item.year >= this.state.year
-    })
+    let newData = this.state.carList.filter(item => {
+      return (
+        item.price >= this.state.min_price &&
+        item.price <= this.state.max_price &&
+        item.year >= this.state.year
+      );
+    });
 
-    if(this.state.color !== 'All') {
-      newData = newData.filter((item) => item.color === this.state.color)
+    if (this.state.color !== 'All') {
+      newData = newData.filter(item => item.color === this.state.color);
     }
-    if(this.state.make !== 'All') {
-      newData = newData.filter((item) => item.make === this.state.make)
+    if (this.state.make !== 'All') {
+      newData = newData.filter(item => item.make === this.state.make);
     }
 
     // Options
-    (this.state.hasSunroof) && (newData = newData.filter(item => item.options.hasSunroof));
+    this.state.hasSunroof &&
+      (newData = newData.filter(item => item.options.hasSunroof));
 
-    (this.state.isFourWheelDrive) && (newData = newData.filter(item => item.options.isFourWheelDrive));
+    this.state.isFourWheelDrive &&
+      (newData = newData.filter(item => item.options.isFourWheelDrive));
 
-    (this.state.hasLowMiles) && (newData = newData.filter(item => item.options.hasLowMiles));
+    this.state.hasLowMiles &&
+      (newData = newData.filter(item => item.options.hasLowMiles));
 
-    (this.state.hasPowerWindows) && (newData = newData.filter(item => item.options.hasPowerWindows));
+    this.state.hasPowerWindows &&
+      (newData = newData.filter(item => item.options.hasPowerWindows));
 
-    (this.state.hasNavigation) && (newData = newData.filter(item => item.options.hasNavigation));
+    this.state.hasNavigation &&
+      (newData = newData.filter(item => item.options.hasNavigation));
 
-    (this.state.hasHeatedSeats) && (newData = newData.filter(item => item.options.hasHeatedSeats));
-
+    this.state.hasHeatedSeats &&
+      (newData = newData.filter(item => item.options.hasHeatedSeats));
 
     this.setState({
       filteredData: newData,
-      filtered: true
-    })
-
-  }
+      filtered: true,
+    });
+  };
 
   render() {
     return (
@@ -102,15 +112,13 @@ export default class Home extends Component {
         {this.state.isReady ? (
           <Container>
             {this.state.filteredData.map(car => {
-              return(
-                <CarItem key={car._id} car={car} />
-              )
+              return <CarItem key={car._id} car={car} />;
             })}
           </Container>
         ) : (
           <Loader />
         )}
       </Layout>
-    )
+    );
   }
 }

@@ -12,26 +12,21 @@ const Img = styled.img`
 
 const CarDetails = props => {
   const { car } = props;
-  const {
-    make,
-    year,
-    price,
-    color,
-    options
-  } = car;
+  const { make, year, price, color, options } = car;
 
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
-    minimumFractionDigits: 0
-  })
+    minimumFractionDigits: 0,
+  });
 
-  const carLogo = (make) => ({
-    'Chevy': chevy,
-    'Ford': ford,
-    'Mercedes': mercedes,
-    'Toyota': toyota
-  })[make]
+  const carLogo = make =>
+    ({
+      Chevy: chevy,
+      Ford: ford,
+      Mercedes: mercedes,
+      Toyota: toyota,
+    }[make]);
 
   return (
     <Fragment>
@@ -50,10 +45,10 @@ const CarDetails = props => {
         {options.hasHeatedSeats && <li>Heated Seats</li>}
       </ul>
     </Fragment>
-  )
-}
+  );
+};
 
-export default CarDetails
+export default CarDetails;
 
 CarDetails.propTypes = {
   car: PropTypes.shape({
@@ -62,6 +57,6 @@ CarDetails.propTypes = {
     year: PropTypes.number,
     price: PropTypes.number,
     color: PropTypes.string,
-    options: PropTypes.objectOf(PropTypes.bool)
-  })
+    options: PropTypes.objectOf(PropTypes.bool),
+  }),
 };

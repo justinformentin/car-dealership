@@ -9,7 +9,7 @@ const button = {
     background: '#aa2525',
   },
   full: {
-    paddingLeft: '12rem'
+    paddingLeft: '12rem',
   },
 };
 
@@ -18,7 +18,7 @@ const header = {
     padding: '0',
   },
   full: {
-    paddingLeft: '12rem'
+    paddingLeft: '12rem',
   },
 };
 

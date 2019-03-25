@@ -5,7 +5,6 @@ import { Loader } from '../utils/loader';
 import Layout from '../layout';
 import CarDetails from '../components/CarDetails';
 
-
 const Container = styled.div`
   background: #d1d4da;
   margin: 0 auto;
@@ -58,10 +57,9 @@ export default class Info extends Component {
         })
       )
       .catch(err => console.log(err));
-  };
+  }
 
   render() {
-
     const { car } = this.state;
 
     return (

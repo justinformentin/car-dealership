@@ -14,7 +14,8 @@ const Container = styled.div`
   background-color: #505364;
   overflow-x: hidden;
   padding-top: 20px;
-  label, span {
+  label,
+  span {
     color: #fff;
   }
 `;
@@ -33,13 +34,33 @@ const Title = styled.h4`
 `;
 
 const HR = styled.hr`
-margin-top: 0.5rem;
-height: 2px;
-background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(200,200,200,.8), rgba(0,0,0,0));
-background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(200,200,200,.8), rgba(0,0,0,0));
-background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(200,200,200,.8), rgba(0,0,0,0));
-background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(200,200,200,.8), rgba(0,0,0,0));
-border: 0;
+  margin-top: 0.5rem;
+  height: 2px;
+  background-image: -webkit-linear-gradient(
+    left,
+    rgba(0, 0, 0, 0),
+    rgba(200, 200, 200, 0.8),
+    rgba(0, 0, 0, 0)
+  );
+  background-image: -moz-linear-gradient(
+    left,
+    rgba(0, 0, 0, 0),
+    rgba(200, 200, 200, 0.8),
+    rgba(0, 0, 0, 0)
+  );
+  background-image: -ms-linear-gradient(
+    left,
+    rgba(0, 0, 0, 0),
+    rgba(200, 200, 200, 0.8),
+    rgba(0, 0, 0, 0)
+  );
+  background-image: -o-linear-gradient(
+    left,
+    rgba(0, 0, 0, 0),
+    rgba(200, 200, 200, 0.8),
+    rgba(0, 0, 0, 0)
+  );
+  border: 0;
 `;
 
 const DropdownContainer = styled.div`
@@ -73,7 +94,6 @@ const PriceContainer = styled.div`
 const PriceInput = styled.input`
   width: 70%;
   margin: 1rem 0.25rem;
-
 `;
 
 const PriceWrap = styled.div`
@@ -99,14 +119,7 @@ const Option = styled.div`
 `;
 
 const SideBar = props => {
-
-  const {
-    carList,
-    min_price,
-    max_price,
-    changeOptions,
-    year
-  } = props
+  const { carList, min_price, max_price, changeOptions, year } = props;
 
   /**
    * @param {string} key
@@ -115,24 +128,28 @@ const SideBar = props => {
    */
   const makeList = key => {
     // Gets list of values from each key
-    const list = carList.map(item => item[key])
+    const list = carList.map(item => item[key]);
     // Returns only unique values from previous list
-    const uniqueList = [...new Set(list)]
+    const uniqueList = [...new Set(list)];
     // Maps over each list item and returns options for the select component
-    return uniqueList.map((item) => <option key={item} value={item}>{item}</option>)
-  }
+    return uniqueList.map(item => (
+      <option key={item} value={item}>
+        {item}
+      </option>
+    ));
+  };
 
   return (
-
     <Container>
-
       <MainTitle>Car Options</MainTitle>
       <HR />
 
-      <Title><span>Make</span></Title>
+      <Title>
+        <span>Make</span>
+      </Title>
       <DropdownContainer>
         <Dropdown name="make" onChange={changeOptions}>
-          <option value='All'>Choose Make</option>
+          <option value="All">Choose Make</option>
           {makeList('make')}
         </Dropdown>
       </DropdownContainer>
@@ -140,7 +157,7 @@ const SideBar = props => {
       <Title>Color</Title>
       <DropdownContainer>
         <Dropdown name="color" onChange={changeOptions}>
-          <option value='All'>Choose Color</option>
+          <option value="All">Choose Color</option>
           {makeList('color')}
         </Dropdown>
       </DropdownContainer>
@@ -149,17 +166,39 @@ const SideBar = props => {
       <PriceContainer>
         <PriceWrap>
           <label>Min. Price</label>
-          <PriceInput type="text" data-testid="min-price" name="min_price" defaultValue='0' onChange={changeOptions} value={min_price}/>
+          <PriceInput
+            type="text"
+            data-testid="min-price"
+            name="min_price"
+            defaultValue="0"
+            onChange={changeOptions}
+            value={min_price}
+          />
         </PriceWrap>
         <PriceWrap>
           <label>Max Price</label>
-          <PriceInput type="text" data-testid="max-price" name="max_price" defaultValue='20000' onChange={changeOptions} value={max_price}/>
+          <PriceInput
+            type="text"
+            data-testid="max-price"
+            name="max_price"
+            defaultValue="20000"
+            onChange={changeOptions}
+            value={max_price}
+          />
         </PriceWrap>
       </PriceContainer>
 
       <Title>Year</Title>
       <Slider>
-        <input type="range" name="year" defaultValue="2012" onChange={changeOptions} value={year} min="2012" max="2016"/>
+        <input
+          type="range"
+          name="year"
+          defaultValue="2012"
+          onChange={changeOptions}
+          value={year}
+          min="2012"
+          max="2016"
+        />
       </Slider>
       <SliderTags>
         <p>2012</p>
@@ -169,34 +208,63 @@ const SideBar = props => {
       <Title>Options</Title>
       <OptionList>
         <Option>
-          <input type="checkbox" name="hasSunroof" value="hasSunroof" onChange={changeOptions} />
+          <input
+            type="checkbox"
+            name="hasSunroof"
+            value="hasSunroof"
+            onChange={changeOptions}
+          />
           <label>Sunroof</label>
         </Option>
         <Option>
-          <input type="checkbox" name="isFourWheelDrive" value="isFourWheelDrive" onChange={changeOptions} />
+          <input
+            type="checkbox"
+            name="isFourWheelDrive"
+            value="isFourWheelDrive"
+            onChange={changeOptions}
+          />
           <label>Four Wheel Drive</label>
         </Option>
         <Option>
-          <input type="checkbox" name="hasLowMiles" value="hasLowMiles" onChange={changeOptions} />
+          <input
+            type="checkbox"
+            name="hasLowMiles"
+            value="hasLowMiles"
+            onChange={changeOptions}
+          />
           <label>Low Miles</label>
         </Option>
         <Option>
-          <input type="checkbox" name="hasPowerWindows" value="hasPowerWindows" onChange={changeOptions} />
+          <input
+            type="checkbox"
+            name="hasPowerWindows"
+            value="hasPowerWindows"
+            onChange={changeOptions}
+          />
           <label>Power Windows</label>
         </Option>
         <Option>
-          <input type="checkbox" name="hasNavigation" value="hasNavigation" onChange={changeOptions} />
+          <input
+            type="checkbox"
+            name="hasNavigation"
+            value="hasNavigation"
+            onChange={changeOptions}
+          />
           <label>Navigation</label>
         </Option>
         <Option>
-          <input type="checkbox" name="hasHeatedSeats" value="hasHeatedSeats" onChange={changeOptions} />
+          <input
+            type="checkbox"
+            name="hasHeatedSeats"
+            value="hasHeatedSeats"
+            onChange={changeOptions}
+          />
           <label>Heated Seats</label>
         </Option>
-
       </OptionList>
     </Container>
-  )
-}
+  );
+};
 
 export default SideBar;
 
@@ -208,10 +276,10 @@ SideBar.propTypes = {
       year: PropTypes.number,
       price: PropTypes.number,
       color: PropTypes.string,
-      options: PropTypes.objectOf(PropTypes.bool)
-    }),
+      options: PropTypes.objectOf(PropTypes.bool),
+    })
   ),
   min_price: PropTypes.number,
   max_price: PropTypes.number,
-  year: PropTypes.number
+  year: PropTypes.number,
 };

@@ -1,27 +1,26 @@
-
 import React from 'react';
-import {configure, shallow } from 'enzyme';
+import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import CarDetails from '../CarDetails'
+import CarDetails from '../CarDetails';
 
 configure({ adapter: new Adapter() });
 
 const car = {
-  "_id": "59d2698c2eaefb1268b69ee5",
-  "make": "Chevy",
-  "year": 2016,
-  "color": "Gray",
-  "price": 16106,
-  "options": {
-    "hasSunroof": false,
-    "isFourWheelDrive": true,
-    "hasLowMiles": true,
-    "hasPowerWindows": false,
-    "hasNavigation": true,
-    "hasHeatedSeats": false
-  }
-}
+  _id: '59d2698c2eaefb1268b69ee5',
+  make: 'Chevy',
+  year: 2016,
+  color: 'Gray',
+  price: 16106,
+  options: {
+    hasSunroof: false,
+    isFourWheelDrive: true,
+    hasLowMiles: true,
+    hasPowerWindows: false,
+    hasNavigation: true,
+    hasHeatedSeats: false,
+  },
+};
 
 describe('<CarDetails />', () => {
   describe('Rendering props', () => {
@@ -74,6 +73,5 @@ describe('<CarDetails />', () => {
       const wrapper = shallow(<CarDetails car={car} />);
       expect(wrapper.text().includes(car.options.hasHeatedSeats)).toBe(false);
     });
-
   });
-})
+});

@@ -9,7 +9,6 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-
   margin: 0 auto;
   @media only screen and (max-width: 1020px) {
     width: 50%;
@@ -50,11 +49,11 @@ const Header = () => {
       <Wrapper>
         <Title>Car Dealership</Title>
         <LinkWrapper>
-          <StyledLink to='/'>Go Home</StyledLink>
+          <StyledLink to="/">Go Home</StyledLink>
         </LinkWrapper>
       </Wrapper>
     </Container>
   );
-}
+};
 
-export default Header
+export default Header;
