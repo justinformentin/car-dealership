@@ -50,7 +50,7 @@ const carColor = color =>
   Silver: '#c0c0c0',
   Gray: '#7b7b7b',
   Black: '#202020',
-  Red: '850f0f'
+  Red: '#850f0f'
 }[color]);
 
 const cardText = bg => ({
@@ -58,7 +58,7 @@ const cardText = bg => ({
   Silver: '#222',
   Gray: '#fff',
   Black: '#fff',
-  Red: 'fff'
+  Red: '#fff'
 }[bg]);
 
 const CarItem = props => {
