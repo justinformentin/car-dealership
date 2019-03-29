@@ -12,7 +12,7 @@ const Card = styled.div`
   text-align: center;
   border-radius: 7px;
   box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.3);
-  background: #d1d4da;
+  /* background: #d1d4da; */
   padding: 0 0.5rem 1rem 0.5rem;
   margin: 0.5rem;
   flex-grow: 1;
@@ -44,11 +44,37 @@ const ButtonLink = styled(Link)`
   color: #fff;
 `;
 
+const carColor = color =>
+({
+  White: '#f9f9f9',
+  Silver: '#c0c0c0',
+  Gray: '#7b7b7b',
+  Black: '#202020',
+  Red: '850f0f'
+}[color]);
+
+const cardText = bg => ({
+  White: '#222',
+  Silver: '#222',
+  Gray: '#fff',
+  Black: '#fff',
+  Red: 'fff'
+}[bg]);
+
 const CarItem = props => {
   const { car } = props;
+  const { color } = car;
 
+  const currentColor = carColor(color);
+  const textColor = cardText(color);
   return (
-    <Card>
+    // <Card style={{'background':`${color}`}}>
+    <Card
+      style={{
+        'background':`${currentColor}`,
+        'color': `${textColor}`
+      }}
+    >
       <Details>
         <CarDetails car={car} />
       </Details>

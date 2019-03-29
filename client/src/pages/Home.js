@@ -116,7 +116,11 @@ export default class Home extends Component {
         {this.state.isReady ? (
           <Container>
             {this.state.filteredData.map(car => {
-              return <CarItem key={car._id} car={car} />;
+              return <CarItem
+                key={car._id}
+                car={car}
+                background={car.color}
+                />
             })}
           </Container>
         ) : (
